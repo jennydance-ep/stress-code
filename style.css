@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.padlock {
+  margin-top: 20px;
+}
+
+.padlock div {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 5px;
+  width: 50px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+h1 {
+  color: #333;
+}
