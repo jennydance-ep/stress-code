@@ -1,6 +1,7 @@
 // URL for the published Google Sheets data as JSON
 const sheetURL = 'https://spreadsheets.google.com/feeds/list/2PACX-1vR2OsanzdAnpMxuS7OdJWZINvJnUF3KHriB9C5viYbNYw-VL3E4yT5sFFP02Dwve6BmRIlV6Gch9hRb/od6/public/values?alt=json';
 
+
 // Function to load data from Google Sheets
 function loadWordData() {
   fetch(sheetURL)
