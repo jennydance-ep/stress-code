@@ -1,6 +1,7 @@
 // Google Sheets API JSON endpoint
 const sheetURL =
-  "https://spreadsheets.google.com/feeds/list/2PACX-1vR2OsanzdAnpMxuS7OdJWZINvJnUF3KHriB9C5viYbNYw-VL3E4yT5sFFP02Dwve6BmRIlV6Gch9hRb/od6/public/values?alt=json";
+  https://sheets.googleapis.com/v4/spreadsheets/1pG3Lwsljg-px-e9hFyo7SFpWX2suAWeQuuig65Od7YY/values/Sheet1?key=<YOUR-API-KEY>
+
 
 // Function to load word data from Google Sheets
 function loadWordData() {
