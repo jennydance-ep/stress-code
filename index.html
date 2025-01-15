@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Code Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Stress Code Game</h1>
+    <h2>Unlock English Pronunciation</h2>
+    <div class="padlock">
+      <div class="combination">
+        <input type="text" id="syllable-input" maxlength="1" placeholder="S" class="combo-box">
+        <input type="text" id="primary-stress-input" maxlength="1" placeholder="P" class="combo-box">
+        <input type="text" id="secondary-stress-input" maxlength="1" placeholder="S" class="combo-box">
+      </div>
+      <div class="padlock-body"></div>
+    </div>
+    <p id="target-word">Target Word: Loading...</p>
+    <button id="check-answer">Check Answer</button>
+    <button id="try-again" style="display: none;">Try Again</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
