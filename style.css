@@ -1,0 +1,111 @@
+/* Updated CSS file for the Stress Code Game */
+
+/* Body Styling */
+body {
+  background-color: rgba(179, 253, 169, 0.3); /* Light green background */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Header */
+h1 {
+  font-size: 2.5em;
+  margin: 20px;
+  color: #333;
+}
+
+/* Sub-header Styling */
+h2 {
+  font-size: 1.5em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Padlock Wrapper */
+.padlock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 20px;
+  border: 3px solid black; /* Black outline for the padlock */
+  border-radius: 10px;
+  width: 300px;
+  background-color: white;
+}
+
+.padlock-combination {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin: 10px 0;
+}
+
+/* Input Styling */
+input {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  text-align: center;
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+
+/* Correct/Incorrect Answer Feedback */
+input.correct {
+  background-color: rgba(179, 253, 169, 0.6); /* Pale green */
+}
+
+input.incorrect {
+  background-color: rgba(255, 165, 0, 0.4); /* Pale orange */
+}
+
+/* Check Answer Button */
+button {
+  background-color: #FFA500; /* Orange button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #FFB347; /* Lighter orange for hover */
+}
+
+/* Try Again Button */
+.try-again {
+  margin-top: 10px;
+  background-color: #FFA500;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.try-again:hover {
+  background-color: #FFB347;
+}
+
+/* Instructions beside input boxes */
+.instructions {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  font-size: 1em;
+}
+
+/* Footer Styling */
+footer {
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #777;
+}
