@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Code Game</title>
+  <!-- Link to CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-container">
+    <!-- Game header -->
+    <h1>Stress Code</h1>
+    <h2>Unlock English Pronunciation</h2>
+
+    <!-- Target word -->
+    <p id="target-word-label">Target Word:</p>
+    <h2 id="target-word">Loading word...</h2>
+
+    <!-- Padlock (with image placeholder) -->
+    <div class="padlock-container">
+      <img src="padlock.png" alt="Padlock" class="padlock-image">
+      <div class="padlock-combination">
+        <label for="syllable-input">Number of Syllables:</label>
+        <input id="syllable-input" type="text" class="input-box" maxlength="1">
+
+        <label for="primary-stress-input">Primary Stress:</label>
+        <input id="primary-stress-input" type="text" class="input-box" maxlength="1">
+
+        <label for="secondary-stress-input">Secondary Stress:</label>
+        <input id="secondary-stress-input" type="text" class="input-box" maxlength="1">
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <button id="check-answer" onclick="checkAnswer()">Check Answer</button>
+    <button id="try-again" class="try-again" style="display: none;" onclick="resetGame()">Try Again</button>
+  </div>
+
+  <!-- Link to JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
