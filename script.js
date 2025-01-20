@@ -76,10 +76,24 @@ function checkAnswer() {
 }
 
 function celebrateWin() {
-    const confetti = document.createElement("div");
-    confetti.classList.add("confetti-animation");
-    document.body.appendChild(confetti);
-    setTimeout(() => confetti.remove(), 3000);
+    for (let i = 0; i < 10; i++) {  // Generates 10 confetti pieces
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti-animation");
+
+        // Randomize position and size
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.width = `${Math.random() * 10 + 5}px`;
+        confetti.style.height = confetti.style.width;
+        
+        // Randomize color
+        const colors = ["gold", "red", "blue", "green", "purple", "orange"];
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        document.body.appendChild(confetti);
+        
+        // Remove confetti after animation ends
+        setTimeout(() => confetti.remove(), 3000);
+    }
     alert("Well done! All answers are correct.");
 }
 
