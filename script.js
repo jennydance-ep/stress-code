@@ -76,7 +76,7 @@ function checkAnswer() {
 }
 
 function celebrateWin() {
-    for (let i = 0; i < 10; i++) {  // Generates 10 confetti pieces
+    for (let i = 0; i < 30; i++) {  // Generates 30 confetti pieces
         const confetti = document.createElement("div");
         confetti.classList.add("confetti-animation");
 
@@ -92,7 +92,7 @@ function celebrateWin() {
         document.body.appendChild(confetti);
         
         // Remove confetti after animation ends
-        setTimeout(() => confetti.remove(), 3000);
+        setTimeout(() => confetti.remove(), 4000);
     }
     alert("Well done! All answers are correct.");
 }
