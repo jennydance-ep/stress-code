@@ -85,17 +85,38 @@ function celebrateWin() {
         confetti.style.width = `${Math.random() * 10 + 5}px`;
         confetti.style.height = confetti.style.width;
         
-        // Randomize color
-        const colors = ["gold", "red", "blue", "green", "purple", "orange"];
-        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        // Assign random color
+        const colors = ["red", "blue", "purple", "gold", "green", "orange"];
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.backgroundColor = color;
+
+        // Assign fall speed based on color
+        let duration;
+        if (color === "red") {
+            duration = 2; // Fastest fall
+        } else if (color === "blue") {
+            duration = 3; // Medium speed
+        } else if (color === "purple") {
+            duration = 4; // Slowest fall
+        } else {
+            duration = Math.random() * 2 + 2; // Random speed for other colors
+        }
+
+        confetti.style.animationDuration = `${duration}s`;
 
         document.body.appendChild(confetti);
-        
+
         // Remove confetti after animation ends
-        setTimeout(() => confetti.remove(), 4000);
+        setTimeout(() => confetti.remove(), duration * 1000);
     }
+
+    // Play sound effect
+    const drumroll = new Audio("ba-dah-ba-dah-dah.mp3");  // Ensure this file is uploaded
+    ba-dah-ba-dah-dah.play();
+
     alert("Well done! All answers are correct.");
 }
+
 
 function resetGame() {
     document.querySelectorAll(".input-box").forEach((box) => {
