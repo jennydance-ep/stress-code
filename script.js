@@ -110,9 +110,10 @@ function celebrateWin() {
         setTimeout(() => confetti.remove(), duration * 1000);
     }
 
-    // Play sound effect
-    const drumroll = new Audio("ba-dah-ba-dah-dah.mp3");  // Ensure this file is uploaded
-    drumroll.play();
+    // Play sound effect  
+const drumroll = new Audio("ba-dah-ba-dah-dah.mp3");  
+drumroll.currentTime = 0;  // Reset audio to the start  
+drumroll.play().catch(error => console.error("Audio play failed:", error));  
 
     alert("Well done! All answers are correct.");
 }
