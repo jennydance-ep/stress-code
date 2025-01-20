@@ -112,7 +112,7 @@ function celebrateWin() {
 
     // Play sound effect
     const drumroll = new Audio("ba-dah-ba-dah-dah.mp3");  // Ensure this file is uploaded
-    ba-dah-ba-dah-dah.play();
+    drumroll.play();
 
     alert("Well done! All answers are correct.");
 }
