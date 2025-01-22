@@ -30,12 +30,15 @@ async function loadWordData() {
 }
 
 function displayWord(wordData) {
+    console.log("Selected Word Data:", wordData);  // Log the received word data
+
     document.getElementById("target-word").innerText = wordData.word;
     document.getElementById("part-of-speech").innerText = wordData.partOfSpeech;
     document.getElementById("ipa-text").innerText = wordData.ipa;
     document.getElementById("ipa-text").style.display = "none";
     window.currentWordData = wordData;
 }
+
 
 function toggleIPA() {
     const ipaElement = document.getElementById("ipa-text");
