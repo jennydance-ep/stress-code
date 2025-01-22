@@ -120,10 +120,20 @@ function celebrateWin() {
         setTimeout(() => confetti.remove(), duration * 1000);
     }
 
-    // Play sound effect  
-    const drumroll = new Audio("ba-dah-ba-dah-dah.mp3");  
-    drumroll.currentTime = 0;  // Reset audio to the start  
-    drumroll.play().catch(error => console.error("Audio play failed:", error));  
+    // List of drumroll sound files  
+const drumSounds = [
+    "ba-dah-ba-dah-dah.mp3",
+    "drumroll.mp3",
+    "guitarstrumslow.mp3",
+];
+
+// Pick a random drum sound  
+const randomDrum = drumSounds[Math.floor(Math.random() * drumSounds.length)];
+
+// Play the selected sound  
+const drumroll = new Audio(randomDrum);
+drumroll.currentTime = 0;
+drumroll.play().catch(error => console.error("Audio play failed:", error));
 
     alert("Well done! All answers are correct.");
 }
