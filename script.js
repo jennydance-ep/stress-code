@@ -144,6 +144,7 @@ function resetGame() {
         box.classList.remove("correct", "incorrect");
     });
 
-document.getElementById("submit").addEventListener("click", checkAnswer);
-document.getElementById("toggle-ipa").addEventListener("click", toggleIPA);
-window.onload = loadWordData;
+    // Reload new word from Google Sheets
+    loadWordData();
+}
+
