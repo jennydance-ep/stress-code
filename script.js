@@ -138,6 +138,12 @@ drumroll.play().catch(error => console.error("Audio play failed:", error));
     alert("Well done! All answers are correct.");
 }
 
+function resetGame() {
+    document.querySelectorAll(".input-box").forEach((box) => {
+        box.value = "";
+        box.classList.remove("correct", "incorrect");
+    });
+
 document.getElementById("submit").addEventListener("click", checkAnswer);
 document.getElementById("toggle-ipa").addEventListener("click", toggleIPA);
 window.onload = loadWordData;
