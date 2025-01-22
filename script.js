@@ -30,11 +30,11 @@ async function loadWordData() {
 }
 
 function displayWord(wordData) {
-    console.log("Selected Word Data:", wordData);  // Log the received word data
+    console.log("Selected Word Data:", wordData);  // Debugging step
 
-    document.getElementById("target-word").innerText = wordData.word;
-    document.getElementById("part-of-speech").innerText = wordData.partOfSpeech;
-    document.getElementById("ipa-text").innerText = wordData.ipa;
+    document.getElementById("target-word").innerText = wordData.word || "No word found";
+    document.getElementById("part-of-speech").innerText = wordData.partOfSpeech || "No part of speech";
+    document.getElementById("ipa-text").innerText = wordData.ipa || "No IPA available";
     document.getElementById("ipa-text").style.display = "none";
     window.currentWordData = wordData;
 }
