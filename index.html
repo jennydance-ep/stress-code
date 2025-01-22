@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Stress Code</h1>
+        <h2>Unlock English Pronunciation</h2>
+        
+        <div class="target-word-container">
+            <label for="target-word" class="target-word-label">Target Word:</label>
+            <span id="target-word">TARGET WORD</span>
+        </div>
+
+        <div class="part-of-speech-container">
+            <label for="part-of-speech">Part of Speech:</label>
+            <span id="part-of-speech">---</span>
+        </div>
+        
+        <div class="input-wrapper">
+            <div class="input-container">
+                <div class="input-group">
+                    <label for="syllables">Number of Syllables:</label>
+                    <input type="text" id="syllables" class="input-box">
+                </div>
+                <div class="input-group">
+                    <label for="primary-stress">Primary Stress:</label>
+                    <input type="text" id="primary-stress" class="input-box">
+                </div>
+                <div class="input-group">
+                    <label for="schwa-count">Number of Schwa Sounds:</label>
+                    <input type="text" id="schwa-count" class="input-box">
+                </div>
+            </div>
+        </div>
+        
+        <button id="toggle-ipa">Show/Hide IPA</button>
+        <div class="ipa-container">
+            <label for="ipa-text">IPA Spelling:</label>
+            <span id="ipa-text" style="display: none;">---</span>
+        </div>
+        
+        <button id="submit">Submit</button>
+        
+        <div class="padlock-wrapper">
+            <img src="padlock.png" alt="Padlock" class="padlock-image">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
