@@ -154,3 +154,12 @@ function resetGame() {
     loadWordData();
 }
 
+console.log("✅ Adding event listeners..."); 
+
+document.getElementById("submit").addEventListener("click", checkAnswer);
+document.getElementById("toggle-ipa").addEventListener("click", toggleIPA);
+
+console.log("✅ Calling loadWordData() now..."); 
+loadWordData();  // This should trigger the fetch request
+
+console.log("✅ loadWordData() was called! Waiting for response...");  
