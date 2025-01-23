@@ -10,6 +10,7 @@ async function loadWordData() {
         console.log("Fetching data from Google Sheets...");
         const response = await fetch(sheetURL);
         const data = await response.json();
+        console.log("Full Google Sheets Data:", data);
         console.log("Data received:", data);
 
         const rows = data.values;
