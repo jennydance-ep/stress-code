@@ -1,3 +1,5 @@
+console.log("✅ script.js is running!");
+
 const sheetURL = "https://sheets.googleapis.com/v4/spreadsheets/1pG3Lwsljg-px-e9hFyo7SFpWX2suAWeQuuig65Od7YY/values/Sheet1?key=AIzaSyDn00TYF6ZfymjuWirL-CWZTc4Q4LLEtrE";
 
 // Feature toggle for 3-word limit
