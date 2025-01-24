@@ -152,8 +152,8 @@ function resetGame() {
         box.classList.remove("correct", "incorrect");
     });
 
-    // Reload new word from Google Sheets
-    loadWordData();
+    // ✅ Fetch a new random word
+    setTimeout(loadWordData, 500); // Small delay for smoother transition
 }
 
 console.log("✅ Adding event listeners..."); 
