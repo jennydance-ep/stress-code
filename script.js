@@ -92,38 +92,43 @@ function checkAnswer() {
 }
 
 function celebrateWin() {
-    for (let i = 0; i < 30; i++) {  // Generates 30 confetti pieces
-        const confetti = document.createElement("div");
-        confetti.classList.add("confetti-animation");
+    // ✅ Preload and play audio first
+    const drumSounds = [
+        "ba-dah-ba-dah-dah.mp3",
+        "drumroll.mp3",
+        "guitarstrumslow.mp3",
+    ];
+    const randomDrum = drumSounds[Math.floor(Math.random() * drumSounds.length)];
+    const drumroll = new Audio(randomDrum);
 
-        // Randomize position and size
-        confetti.style.left = `${Math.random() * 100}vw`;
-        confetti.style.width = `${Math.random() * 10 + 5}px`;
-        confetti.style.height = confetti.style.width;
-        
-        // Assign random color
-        const colors = ["red", "blue", "purple", "gold", "green", "orange"];
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.backgroundColor = color;
+    drumroll.play().catch(error => console.error("Audio play failed:", error));
 
-        // Assign fall speed based on color
-        let duration;
-        if (color === "red") {
-            duration = 2; // Fastest fall
-        } else if (color === "blue") {
-            duration = 3; // Medium speed
-        } else if (color === "purple") {
-            duration = 4; // Slowest fall
-        } else {
-            duration = Math.random() * 2 + 2; // Random speed for other colors
-        }
+    // ✅ Colorful alert box (replacing confetti)
+    const alertBox = document.createElement("div");
+    alertBox.innerText = "🎉 Well done! All answers are correct. 🎉";
+    alertBox.style.position = "fixed";
+    alertBox.style.top = "50%";
+    alertBox.style.left = "50%";
+    alertBox.style.transform = "translate(-50%, -50%)";
+    alertBox.style.padding = "20px";
+    alertBox.style.backgroundColor = "#28a745"; // Green success color
+    alertBox.style.color = "white";
+    alertBox.style.fontSize = "20px";
+    alertBox.style.fontWeight = "bold";
+    alertBox.style.borderRadius = "8px";
+    alertBox.style.boxShadow = "0px 0px 10px rgba(0,0,0,0.3)";
+    alertBox.style.textAlign = "center";
+    alertBox.style.zIndex = "1000";
 
-        confetti.style.animationDuration = `${duration}s`;
+    document.body.appendChild(alertBox);
 
-        document.body.appendChild(confetti);
+    // ✅ Hide alert box after 2 seconds, then reset game
+    setTimeout(() => {
+        alertBox.remove();
+        resetGame();
+    }, 2000);
+}
 
-        // Remove confetti after animation ends
-        setTimeout(() => confetti.remove(), duration * 1000);
     }
 
     // List of drumroll sound files  
