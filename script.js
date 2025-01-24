@@ -100,6 +100,8 @@ function celebrateWin() {
     const randomDrum = drumSounds[Math.floor(Math.random() * drumSounds.length)];
     const drumroll = new Audio(randomDrum);
 
+    // ✅ Preload audio to reduce delay on mobile
+    drumroll.load();  
     drumroll.play().catch(error => console.error("Audio play failed:", error));
 
     // ✅ Colorful alert box (replacing confetti)
