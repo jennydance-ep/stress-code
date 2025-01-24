@@ -142,6 +142,8 @@ drumroll.currentTime = 0;
 drumroll.play().catch(error => console.error("Audio play failed:", error));
 
     alert("Well done! All answers are correct.");
+    // ✅ Call resetGame() to load a new word
+    setTimeout(resetGame, 1000); // Add delay so the player sees the celebration
 }
 
 function resetGame() {
