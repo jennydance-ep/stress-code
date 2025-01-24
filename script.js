@@ -144,7 +144,7 @@ function resetGame() {
     });
 
     // ✅ Reset IPA toggle switch to OFF
-    const ipaToggle = document.getElementById("ipa-toggle");
+    const ipaToggle = document.getElementById("toggle-ipa"); // Fix: Correct ID
     const ipaText = document.getElementById("ipa-text");
 
     ipaToggle.checked = false;  // Move the toggle back to "off" (grey)
