@@ -137,15 +137,21 @@ function celebrateWin() {
     }, 2000);
 }
 
-// ✅ Reset game for new word
 function resetGame() {
     document.querySelectorAll(".input-box").forEach((box) => {
         box.value = "";
         box.classList.remove("correct", "incorrect");
     });
 
+    // ✅ Reset IPA toggle switch to OFF
+    const ipaToggle = document.getElementById("ipa-toggle");
+    const ipaText = document.getElementById("ipa-text");
+
+    ipaToggle.checked = false;  // Move the toggle back to "off" (grey)
+    ipaText.style.display = "none"; // Hide the IPA text
+
     // ✅ Fetch a new random word
-    setTimeout(loadWordData, 500);
+    setTimeout(loadWordData, 500); // Small delay for smoother transition
 }
 
 // ✅ Add event listeners properly
