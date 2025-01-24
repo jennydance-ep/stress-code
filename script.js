@@ -90,18 +90,26 @@ function checkAnswer() {
     }
 }
 
-function celebrateWin() {
-    // ✅ Preload and play audio first
-    const drumSounds = [
-        "ba-dah-ba-dah-dah.mp3",
-        "drumroll.mp3",
-        "guitarstrumslow.mp3",
-    ];
-    const randomDrum = drumSounds[Math.floor(Math.random() * drumSounds.length)];
-    const drumroll = new Audio(randomDrum);
+// ✅ Preload sounds on page load
+const drumSounds = [
+    "ba-dah-ba-dah-dah.mp3",
+    "drumroll.mp3",
+    "guitarstrumslow.mp3",
+];
 
-    // ✅ Preload audio to reduce delay on mobile
-    drumroll.load();  
+const preloadedSounds = drumSounds.map(src => {
+    const audio = new Audio(src);
+    audio.load();  // ✅ Preload the sound
+    return audio;
+});
+
+// ✅ Celebrate Win function with preloaded sounds
+function celebrateWin() {
+    // ✅ Pick a preloaded sound at random
+    const drumroll = preloadedSounds[Math.floor(Math.random() * preloadedSounds.length)];
+    
+    // ✅ Ensure it's reset to the start & play immediately
+    drumroll.currentTime = 0;
     drumroll.play().catch(error => console.error("Audio play failed:", error));
 
     // ✅ Colorful alert box (replacing confetti)
@@ -129,6 +137,13 @@ function celebrateWin() {
         resetGame();
     }, 2000);
 }
+
+// ✅ Preload sounds as soon as the page loads
+window.onload = function () {
+    console.log("✅ Preloading sounds...");
+    preloadedSounds.forEach(sound => sound.load());
+    loadWordData();  // ✅ Load game data after preloading
+};
 
 function resetGame() {
     document.querySelectorAll(".input-box").forEach((box) => {
