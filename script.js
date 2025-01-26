@@ -79,8 +79,8 @@ function saveScoreData(score, streak) {
 // ✅ Update Score Display
 function updateScoreDisplay() {
     const { score, streak } = loadScoreData();
-    document.getElementById("score-count").innerText = score;
-    document.getElementById("streak-count").innerText = streak;
+    document.getElementById("current-score").innerText = score;
+    document.getElementById("current-streak").innerText = streak;
 }
 
 // ✅ Check answers
