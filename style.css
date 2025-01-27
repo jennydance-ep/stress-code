@@ -1,0 +1,209 @@
+/* Updated CSS file for Stress Code Game */
+
+body {
+    background-color: rgba(179, 253, 169, 0.3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 10px;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* ✅ Score Tracker Styling */
+.score-tracker {
+    background-color: #f8f9fa;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    max-width: 400px;
+    margin: 10px auto;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.score-tracker p {
+    margin: 5px 0;
+}
+
+.target-word-container, .part-of-speech-container, .ipa-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+    font-size: 1em;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 400px;
+    background-color: white;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group label {
+    font-size: 1em;
+    flex: 1;
+    text-align: left;
+}
+
+.input-box {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: white;
+    flex: 1;
+}
+
+.input-box.correct {
+    background-color: rgba(179, 253, 169, 0.6); /* Pale green */
+}
+
+.input-box.incorrect {
+    background-color: rgba(255, 165, 0, 0.4); /* Pale orange */
+}
+
+button {
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #FFB347;
+}
+
+.padlock-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.padlock-image {
+    width: 80px;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* ✅ IPA Toggle Container Styling */
+.ipa-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+/* ✅ Toggle Switch Styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 22px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* ✅ Toggle switch active state */
+input:checked + .slider {
+    background-color: #28a745; /* Green when toggled on */
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px);
+}
+
+/* ✅ IPA Text Styling */
+.ipa-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    display: none;
+}
+
+/* ✅ Share Button Styling */
+.share-container {
+    margin-top: 15px;
+}
+
+#share-btn {
+    background-color: #007bff; /* Blue share button */
+    color: white;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#share-btn:hover {
+    background-color: #0056b3;
+}
