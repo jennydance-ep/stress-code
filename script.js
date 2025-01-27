@@ -81,7 +81,6 @@ function updateScoreDisplay() {
     const { score, streak } = loadScoreData();
     document.getElementById("current-score").innerText = score;
     document.getElementById("current-streak").innerText = streak;
-    updateScoreDisplay(); // ✅ Ensure the UI updates immediately!
 }
 
 // ✅ Check answers
@@ -142,14 +141,14 @@ function updateScore() {
     const today = new Date().toISOString().split('T')[0]; // Get current date
 
     if (lastPlayedDate === today) {
-    score += 1; // ✅ Correct: add 1 to score only
-} else {
-    streak = (lastPlayedDate && isConsecutiveDay(lastPlayedDate, today)) ? streak + 1 : 1;  
-    score = 1; // ✅ Reset score for a new day
-}
+        score += 1; // ✅ Correct: add 1 to score only
+    } else {
+        streak = (lastPlayedDate && isConsecutiveDay(lastPlayedDate, today)) ? streak + 1 : 1;  
+        score = 1; // ✅ Reset score for a new day
+    }
 
     saveScoreData(score, streak);
-    updateScoreDisplay();
+    updateScoreDisplay(); // ✅ Ensure UI updates correctly
 }
 
 // ✅ Celebrate Win function with preloaded sounds
@@ -196,6 +195,7 @@ function resetGame() {
     ipaToggle.checked = false;  
     ipaText.style.display = "none"; 
 
+    updateScoreDisplay(); // ✅ Ensure score updates after reset
     setTimeout(loadWordData, 500);
 }
 
