@@ -199,13 +199,22 @@ function resetGame() {
 // ✅ Add event listeners properly
 document.addEventListener("DOMContentLoaded", () => {
     console.log("✅ Adding event listeners...");
+
     document.getElementById("submit").addEventListener("click", checkAnswer);
     document.getElementById("toggle-ipa").addEventListener("click", toggleIPA);
-    document.getElementById("share-btn").addEventListener("click", shareGame); // ✅ Add Share Button
+
+    // ✅ Fix: Ensure the Share Button exists before adding an event listener
+    const shareBtn = document.getElementById("share-btn");
+    if (shareBtn) {
+        shareBtn.addEventListener("click", shareGame);
+        console.log("✅ Share button event listener added!");
+    } else {
+        console.warn("⚠️ Share button not found in the DOM!");
+    }
 
     console.log("✅ Calling loadWordData() now...");
     loadWordData();
-    updateScoreDisplay();
+    updateScoreDisplay(); // ✅ Load the score when page loads
 });
 
 console.log("✅ loadWordData() was called! Waiting for response...");
