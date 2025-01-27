@@ -64,8 +64,8 @@ function toggleIPA() {
 // ✅ Score Tracker: Load and Save Scores
 function loadScoreData() {
     return {
-        score: parseInt(localStorage.getItem("score")) || 0,
-        streak: parseInt(localStorage.getItem("streak")) || 0,
+        score: localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0,
+        streak: localStorage.getItem("streak") ? parseInt(localStorage.getItem("streak")) : 0,
         lastPlayedDate: localStorage.getItem("lastPlayedDate") || ""
     };
 }
@@ -81,6 +81,7 @@ function updateScoreDisplay() {
     const { score, streak } = loadScoreData();
     document.getElementById("current-score").innerText = score;
     document.getElementById("current-streak").innerText = streak;
+    updateScoreDisplay(); // ✅ Ensure the UI updates immediately!
 }
 
 // ✅ Check answers
@@ -127,17 +128,25 @@ function checkAnswer() {
     }
 }
 
+// ✅ Helper function to check if days are consecutive
+function isConsecutiveDay(previousDate, currentDate) {
+    const prev = new Date(previousDate);
+    const curr = new Date(currentDate);
+    const difference = (curr - prev) / (1000 * 60 * 60 * 24); // Convert to days
+    return difference === 1; // Returns true if they are consecutive days
+}
+
 // ✅ Update Score and Streak
 function updateScore() {
     let { score, streak, lastPlayedDate } = loadScoreData();
     const today = new Date().toISOString().split('T')[0]; // Get current date
 
     if (lastPlayedDate === today) {
-        score += 1; // ✅ Increment score if playing on the same day
-    } else {
-        streak = lastPlayedDate ? streak + 1 : 1; // ✅ Increment streak if played on consecutive days
-        score = 1; // ✅ Reset score for the new day
-    }
+    score += 1; // ✅ Correct: add 1 to score only
+} else {
+    streak = (lastPlayedDate && isConsecutiveDay(lastPlayedDate, today)) ? streak + 1 : 1;  
+    score = 1; // ✅ Reset score for a new day
+}
 
     saveScoreData(score, streak);
     updateScoreDisplay();
