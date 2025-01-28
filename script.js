@@ -113,13 +113,6 @@ function checkAnswer() {
     const primaryStressInput = document.getElementById("primary-stress");
     const schwaCountInput = document.getElementById("schwa-count");
 
-
-// ✅ Check answers
-function checkAnswer() {
-    const syllableInput = document.getElementById("syllables");
-    const primaryStressInput = document.getElementById("primary-stress");
-    const schwaCountInput = document.getElementById("schwa-count");
-
     const { syllables, primaryStress, schwaCount } = window.currentWordData;
     let allCorrect = true;
 
