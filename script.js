@@ -76,12 +76,43 @@ function saveScoreData(score, streak) {
     localStorage.setItem("lastPlayedDate", new Date().toISOString().split('T')[0]); // Save only YYYY-MM-DD
 }
 
+// ✅ Helper function to check if days are consecutive
+function isConsecutiveDay(previousDate, currentDate) {
+    const prev = new Date(previousDate);
+    const curr = new Date(currentDate);
+    const difference = (curr - prev) / (1000 * 60 * 60 * 24); // Convert to days
+    return difference === 1; // Returns true if they are consecutive days
+}
+
+// ✅ Update Score and Streak
+function updateScore() {
+    let { score, streak, lastPlayedDate } = loadScoreData();
+    const today = new Date().toISOString().split('T')[0]; // Get current date
+
+    if (lastPlayedDate === today) {
+        score += 1; // ✅ Correct: add 1 to score only
+    } else {
+        streak = (lastPlayedDate && isConsecutiveDay(lastPlayedDate, today)) ? streak + 1 : 1;  
+        score = 1; // ✅ Reset score for a new day
+    }
+
+    saveScoreData(score, streak);
+    updateScoreDisplay(); // ✅ Ensure UI updates correctly
+}
+
 // ✅ Update Score Display
 function updateScoreDisplay() {
     const { score, streak } = loadScoreData();
     document.getElementById("current-score").innerText = score;
     document.getElementById("current-streak").innerText = streak;
 }
+
+// ✅ Check answers
+function checkAnswer() {
+    const syllableInput = document.getElementById("syllables");
+    const primaryStressInput = document.getElementById("primary-stress");
+    const schwaCountInput = document.getElementById("schwa-count");
+
 
 // ✅ Check answers
 function checkAnswer() {
