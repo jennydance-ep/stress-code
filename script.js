@@ -32,7 +32,6 @@ async function loadWordData() {
         const randomRow = rows[Math.floor(Math.random() * rows.length)];
         const wordData = {
             word: randomRow[0],
-            partOfSpeech: randomRow[1],
             syllables: randomRow[2],
             primaryStress: randomRow[3],
             schwaCount: randomRow[4],
@@ -49,7 +48,6 @@ async function loadWordData() {
 function displayWord(wordData) {
     console.log("Selected Word Data:", wordData);
     document.getElementById("target-word").innerText = wordData.word || "No word found";
-    document.getElementById("part-of-speech").innerText = wordData.partOfSpeech || "No part of speech";
     document.getElementById("ipa-text").innerText = wordData.ipa || "No IPA available";
     document.getElementById("ipa-text").style.display = "none";
     window.currentWordData = wordData;
@@ -109,11 +107,17 @@ function updateScoreDisplay() {
 
 // ✅ Check answers
 function checkAnswer() {
+    if (!window.currentWordData) {
+        console.error("Error: No word data available!");
+        return; // Stop function execution if data is missing
+    }
+
+    const { syllables, primaryStress, schwaCount } = window.currentWordData;
+
     const syllableInput = document.getElementById("syllables");
     const primaryStressInput = document.getElementById("primary-stress");
     const schwaCountInput = document.getElementById("schwa-count");
 
-    const { syllables, primaryStress, schwaCount } = window.currentWordData;
     let allCorrect = true;
 
     if (syllableInput.value === syllables) {
