@@ -238,10 +238,6 @@ function closeOnboardingPopup() {
     localStorage.setItem("seenPopup", "true"); // ✅ Remember that the user has seen it
 }
 
-// ✅ Add event listeners for pop-up buttons
-document.getElementById("close-popup").addEventListener("click", closeOnboardingPopup);
-document.getElementById("help-btn").addEventListener("click", () => showOnboardingPopup(true));
-
 // ✅ Run onboarding pop-up on first visit
     const shareBtn = document.getElementById("share-btn");
     if (shareBtn) {
@@ -264,6 +260,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("submit").addEventListener("click", checkAnswer);
     document.getElementById("toggle-ipa").addEventListener("click", toggleIPA);
+
+    // ✅ Add event listeners for pop-up buttons
+    document.getElementById("close-popup").addEventListener("click", closeOnboardingPopup);
+    document.getElementById("help-btn").addEventListener("click", () => showOnboardingPopup(true));
 
     // ✅ Fix: Ensure the Share Button exists before adding an event listener
     const shareBtn = document.getElementById("share-btn");
