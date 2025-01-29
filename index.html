@@ -11,12 +11,30 @@
     <div class="game-container">
         <h1>Stress Code</h1>
         <h2>Unlock English Pronunciation</h2>
-        
-        <!-- ✅ Score Tracker Section -->
-        <div class="score-tracker">
-            <p><strong>Current Score:</strong> <span id="current-score">0</span></p>
-            <p><strong>Current Streak:</strong> <span id="current-streak">0</span> days</p>
-        </div>
+
+<!-- ✅ Onboarding Pop-up -->
+<div id="onboarding-popup" class="popup-container">
+    <div class="popup-content">
+        <h3>Welcome to Stress Code! 🎉</h3>
+        <p>Test your pronunciation skills! Enter:</p>
+        <ul>
+            <li>🔹 Number of syllables</li>
+            <li>🔹 Primary stress position</li>
+            <li>🔹 Number of schwa sounds</li>
+        </ul>
+        <p>Tap "Submit" to check your answers!</p>
+        <button id="close-popup">Got it!</button>
+    </div>
+</div>
+
+<!-- ✅ Info Button -->
+<button id="info-btn" class="info-button">ℹ️</button>
+
+<!-- ✅ Score Tracker Section -->
+<div class="score-tracker">
+    <p><strong>Current Score:</strong> <span id="current-score">0</span></p>
+    <p><strong>Current Streak:</strong> <span id="current-streak">0</span> days</p>
+</div>
 
         <div class="target-word-container">
             <p class="target-word-label">Target Word: <span id="target-word">TARGET WORD</span></p>
