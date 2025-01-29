@@ -224,6 +224,47 @@ function resetGame() {
     setTimeout(loadWordData, 500);
 }
 
+// ✅ Onboarding Pop-up Functionality
+function showOnboardingPopup(forceShow = false) {
+    const hasSeenPopup = localStorage.getItem("seenPopup");
+
+    if (!hasSeenPopup || forceShow) {
+        document.getElementById("onboarding-popup").style.display = "flex";
+    }
+}
+
+function closeOnboardingPopup() {
+    document.getElementById("onboarding-popup").style.display = "none";
+    localStorage.setItem("seenPopup", "true"); // ✅ Remember that the user has seen it
+}
+
+// ✅ Add event listeners for pop-up buttons
+document.getElementById("close-popup").addEventListener("click", closeOnboardingPopup);
+document.getElementById("help-btn").addEventListener("click", () => showOnboardingPopup(true));
+
+// ✅ Run onboarding pop-up on first visit
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("✅ Adding event listeners...");
+
+    document.getElementById("submit").addEventListener("click", checkAnswer);
+    document.getElementById("toggle-ipa").addEventListener("click", toggleIPA);
+
+    const shareBtn = document.getElementById("share-btn");
+    if (shareBtn) {
+        shareBtn.addEventListener("click", shareGame);
+        console.log("✅ Share button event listener added!");
+    } else {
+        console.warn("⚠️ Share button not found in the DOM!");
+    }
+
+    console.log("✅ Calling loadWordData() now...");
+    loadWordData();
+    updateScoreDisplay(); // ✅ Load the score when page loads
+
+    // ✅ Show onboarding pop-up only for first-time users
+    showOnboardingPopup();
+});
+
 // ✅ Add event listeners properly
 document.addEventListener("DOMContentLoaded", () => {
     console.log("✅ Adding event listeners...");
