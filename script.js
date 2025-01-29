@@ -243,12 +243,6 @@ document.getElementById("close-popup").addEventListener("click", closeOnboarding
 document.getElementById("help-btn").addEventListener("click", () => showOnboardingPopup(true));
 
 // ✅ Run onboarding pop-up on first visit
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("✅ Adding event listeners...");
-
-    document.getElementById("submit").addEventListener("click", checkAnswer);
-    document.getElementById("toggle-ipa").addEventListener("click", toggleIPA);
-
     const shareBtn = document.getElementById("share-btn");
     if (shareBtn) {
         shareBtn.addEventListener("click", shareGame);
