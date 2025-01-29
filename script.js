@@ -257,7 +257,6 @@ document.getElementById("help-btn").addEventListener("click", () => showOnboardi
 
     // ✅ Show onboarding pop-up only for first-time users
     showOnboardingPopup();
-});
 
 // ✅ Add event listeners properly
 document.addEventListener("DOMContentLoaded", () => {
