@@ -19,6 +19,81 @@ h2 {
     color: #555;
     margin-bottom: 10px;
 }
+/* ✅ Onboarding Pop-up Styling */
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+.popup-content h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.popup-content p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.popup-content ul {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 1em;
+}
+
+.popup-content ul li {
+    margin-bottom: 5px;
+}
+
+#close-popup {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#close-popup:hover {
+    background-color: #218838;
+}
+
+/* ✅ Info Button Styling */
+.info-button {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.info-button:hover {
+    background-color: #0056b3;
+}
 
 /* ✅ Score Tracker Styling */
 .score-tracker {
