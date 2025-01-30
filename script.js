@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ✅ Add event listeners for pop-up buttons
     document.getElementById("close-popup").addEventListener("click", closeOnboardingPopup);
-    document.getElementById("help-btn").addEventListener("click", () => showOnboardingPopup(true));
+    document.getElementById("info-btn").addEventListener("click", () => showOnboardingPopup(true));
 
     // ✅ Fix: Ensure the Share Button exists before adding an event listener
     const shareBtn = document.getElementById("share-btn");
