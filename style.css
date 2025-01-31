@@ -1,5 +1,22 @@
 /* Updated CSS file for Stress Code Game */
 
+.header-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center the entire unit */
+    gap: 10px; /* Add spacing between the padlock and h1 */
+    margin-top: 20px;
+}
+
+.padlock-wrapper {
+    margin-top: 0; /* Remove top margin so it's aligned properly */
+}
+
+.padlock-image {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+}
+
 body {
     background-color: rgba(179, 253, 169, 0.3);
     font-family: Arial, sans-serif;
@@ -185,17 +202,6 @@ button {
 
 button:hover {
     background-color: #FFB347;
-}
-
-.padlock-wrapper {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.padlock-image {
-    width: 80px;
-    height: auto;
-    margin-top: 10px;
 }
 
 /* ✅ IPA Toggle Container Styling */
