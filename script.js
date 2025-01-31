@@ -12,6 +12,10 @@ const drumSounds = [
     "ba-dah-ba-dah-dah.mp3",
     "drumroll.mp3",
     "guitarstrumslow.mp3",
+    "hightolow.mp3",
+    "longdrum.mp3",
+    "ratatat.mp3",
+    "shortroll.mp3",
 ];
 const preloadedSounds = drumSounds.map(src => {
     const audio = new Audio(src);
