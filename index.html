@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Primary Meta Tags -->
+<title>Stress Code – Learn English Word Stress & Pronunciation</title>
+<meta name="title" content="Stress Code – Learn English Word Stress & Pronunciation">
+<meta name="description" content="Interactive game to practice English pronunciation and word stress using IPA. Ideal for English students and teachers looking to improve spoken English.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stress-code-english-pronunciation.netlify.app/">
+<meta property="og:title" content="Stress Code – Learn English Word Stress & Pronunciation">
+<meta property="og:description" content="Play and learn English word stress with Stress Code. Interactive pronunciation game using IPA.">
+<meta property="og:image" content="https://stress-code-english-pronunciation.netlify.app/images/stress-code-preview.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://stress-code-english-pronunciation.netlify.app/">
+<meta property="twitter:title" content="Stress Code – Learn English Word Stress & Pronunciation">
+<meta property="twitter:description" content="Interactive pronunciation game for English learners. Practice stress patterns, see correct pronunciation, and improve your fluency.">
+<meta property="twitter:image" content="https://stress-code-english-pronunciation.netlify.app/images/stress-code-preview.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Code</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B208Q4437Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B208Q4437Y');
+</script>
+</head>
+<body>
+    <div class="game-container">
+        <!-- ✅ Header Container (Padlock + Title) -->
+        <div class="header-container">
+            <div class="padlock-wrapper">
+                <img src="padlock.png" alt="Padlock" class="padlock-image">
+            </div>
+            <h1>Stress Code</h1>
+        </div>
+
+        <!-- ✅ Subtitle should be outside header-container -->
+        <h2 class="subtitle">Learn English Word Stress and Pronunciation</h2>
+
+<!-- ✅ Onboarding Pop-up -->
+<div id="onboarding-popup" class="popup-container">
+    <div class="popup-content">
+        <h2>Improve your British English pronunciation with Stress Code!</h2>
+<p>
+    Did you know that syllable stress is crucial for clear English pronunciation?  
+    Stress Code helps you master British English stress patterns so you can speak with confidence. 
+    Here are some words you can practice in the game: architecture, decorate, responsible, unpredictable, vegetable. For each word, enter:
+</p>
+<ul>
+    <li>🔢 Number of syllables</li>
+    <li>🎯 Syllable with primary stress</li>
+    <li>✅ Number of schwa sounds /ə/</li>
+</ul>
+<p>
+    Not sure? Use the IPA (International Phonetic Alphabet) toggle to see the phonetic spelling, or check the pronunciation at  
+    <a href="https://dictionary.cambridge.org/" target="_blank">Cambridge Dictionary</a>.
+</p>
+<p>
+    New to IPA? Watch this <a href="https://youtu.be/bdMYGoHY3FE" target="_blank">short video</a> and use <a href="https://www.jdenglishpronunciation.co.uk/british-english-sounds-chart" target="_blank">our interactive chart</a>!
+</p>
+<p>
+    Need help? Contact Jenny at  
+    <a href="mailto:jenny@jdenglishpronunciation.co.uk">jenny@jdenglishpronunciation.co.uk</a>  
+    or visit our website:  
+    <a href="https://www.jdenglishpronunciation.co.uk" target="_blank">www.jdenglishpronunciation.co.uk</a>.
+</p>
+        <button id="close-popup">Got it!</button>
+    </div>
+</div>
+
+<!--
+<div class="score-tracker">
+    <p><strong>Current Score:</strong> <span id="current-score">0</span></p>
+    <p><strong>Current Streak:</strong> <span id="current-streak">0</span> days</p>
+</div>
+-->
+
+        <div class="target-word-container">
+            <p class="target-word-label">Target Word: <span id="target-word">TARGET WORD</span></p>
+        </div>
+   
+        <div class="input-wrapper">
+            <div class="input-container">
+                <div class="input-group">
+                    <label for="syllables">Number of Syllables:</label>
+                    <input type="number" id="syllables" class="input-box" inputmode="numeric">
+                </div>
+                <div class="input-group">
+                    <label for="primary-stress">Primary Stress:</label>
+                    <input type="number" id="primary-stress" class="input-box" inputmode="numeric">
+                </div>
+                <div class="input-group">
+                    <label for="schwa-count">Number of Schwas /ə/:</label>
+                    <input type="number" id="schwa-count" class="input-box" inputmode="numeric">
+                </div>
+            </div>
+        </div>
+        
+        <!-- ✅ Try Again message -->
+        <div class="feedback-message">
+    <p id="feedback-message"></p>
+</div>
+
+        <!-- ✅ IPA Toggle Switch -->
+        <div class="ipa-toggle-container">
+            <label class="ipa-label">IPA Spelling:</label>
+            <label class="switch">
+                <input type="checkbox" id="toggle-ipa">
+                <span class="slider"></span>
+            </label>
+            <span id="ipa-text" class="ipa-text" style="display: none;">---</span>
+        </div>
+ 
+        <!-- ✅ Info, Submit and Share Buttons -->
+        <div class="share-container">
+            <button id="info-btn" class="info-button">Help</button>
+            <button id="submit">Submit</button>
+            <button id="share-btn">Share</button>
+        </div>
+        <button id="next-word-btn" style="display: none;">Next Word ➡️</button>
+<!-- ✅ Preview Words Section -->
+<div class="preview-words-container">
+  <h3 class="preview-heading">Other words in this game...</h3>
+  <p class="preview-text">
+    Do you know how to say: <strong>architecture</strong>, <strong>proactive</strong>, <strong>vegetable</strong>, <strong>responsible</strong>, <strong>unpredictable</strong>, and <strong>convincing</strong>? Practise these and more to perfect your English speaking!
+  </p>
+</div>
+
+    </div>
+<!-- Feedback Pop-up: Role Survey -->
+<div id="feedback-popup" class="feedback-popup-container">
+    <div class="feedback-popup-content">
+        <p>We'd love to know a bit about you!</p>
+        <p class="feedback-question">What best describes you?</p>
+        <div class="feedback-options">
+            <button class="feedback-role-btn" data-role="learner">English Learner</button>
+            <button class="feedback-role-btn" data-role="teacher">English Teacher</button>
+            <button class="feedback-role-btn" data-role="other">Other</button>
+        </div>
+        <button id="feedback-dismiss" class="feedback-dismiss-btn">Skip</button>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+    <div class="visually-hidden">
+  <!-- English learners from around the world -->
+  How to pronounce English words. Practice English pronunciation online. Stress in British English.
+
+  <!-- French -->
+  Comment prononcer les mots anglais. Pratique de la prononciation anglaise. L'accent tonique en anglais britannique.
+
+  <!-- Spanish -->
+  Cómo pronunciar palabras en inglés. Práctica de pronunciación en inglés. Acentuación en inglés británico.
+
+  <!-- German -->
+  Wie man englische Wörter ausspricht. Englische Aussprache üben. Betonung im britischen Englisch.
+
+  <!-- Arabic -->
+  كيفية نطق الكلمات الإنجليزية. ممارسة النطق باللغة الإنجليزية. التوكيد في اللغة الإنجليزية البريطانية.
+
+  <!-- Italian -->
+  Come pronunciare le parole inglesi. Pratica di pronuncia inglese. L'accento nell'inglese britannico.
+</div>
+
+</body>
+</html>
+

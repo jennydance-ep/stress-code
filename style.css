@@ -1,0 +1,399 @@
+/* Updated CSS file for Stress Code Game */
+
+.header-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center the entire unit */
+    gap: 10px; /* Add spacing between the padlock and h1 */
+    margin-top: 10px;
+}
+
+.padlock-wrapper {
+    margin-top: 0; /* Remove top margin so it's aligned properly */
+}
+
+.padlock-image {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+}
+
+body {
+    background-color: rgba(179, 253, 169, 0.3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 10px;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 3px;
+}
+/* ✅ Onboarding Pop-up Styling */
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+.popup-content h3 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2em;
+}
+
+.popup-content p {
+    font-size: 1em;
+    color: #555;
+}
+
+.popup-content ul {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 1em;
+}
+
+.popup-content ul li {
+    margin-bottom: 5px;
+}
+
+#close-popup {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#close-popup:hover {
+    background-color: #218838;
+}
+
+/* ✅ Info (was, now Help) Button Styling */
+.info-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #c9daf8; /* Same pale blue as Score Tracker */
+    color: #333;
+}
+
+.info-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* ✅ Score Tracker Styling */
+.score-tracker {
+    background-color: #c9daf8;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+    max-width: 400px;
+    margin: 10px auto;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.score-tracker p {
+    margin: 5px 0;
+}
+
+.target-word-container, .part-of-speech-container, .ipa-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    margin-top: 2px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 400px;
+    background-color: white;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-group label {
+    font-size: 1em;
+    flex: 1;
+    text-align: left;
+}
+
+.input-box {
+    width: 65px;
+    height: 40px;
+    font-size: 1.2em;
+    text-align: center;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: white;
+    flex: 0;
+}
+
+.input-box.correct {
+    background-color: rgba(179, 253, 169, 0.6); /* Pale green */
+}
+
+.input-box.incorrect {
+    background-color: rgba(255, 165, 0, 0.4); /* Pale orange */
+}
+
+/* Submit button */
+button {
+    background-color: #FFA500;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #FFB347;
+}
+
+/* ✅ Feedback Message Styling */
+.feedback-message {
+    display: block !important;
+    color: red;
+    font-weight: bold;
+    text-align: center; /* Centers the message */
+    margin-top: 10px; /* Adds some spacing */
+}
+
+/* ✅ IPA Toggle Container Styling */
+.ipa-toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+/* ✅ Toggle Switch Styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 22px;
+    border: 1px solid black; /* ✅ Add thin black border line */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* ✅ Toggle switch active state */
+input:checked + .slider {
+    background-color: rgba(179, 253, 169, 0.6); /* Pale green like correct answer input space when toggled on */
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px);
+}
+
+/* ✅ IPA Text Styling */
+.ipa-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    display: none;
+}
+
+/* ✅ Share Button Styling */
+.share-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center; /* Centers buttons */
+    gap: 30px; /* Adjust space between buttons */
+}
+
+#share-btn {
+    background-color: rgba(179, 253, 169, 0.6); /* same pale green as correct answer */
+    color: #333;
+    font-size: 1em;
+    padding: 10px 20px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#share-btn:hover {
+    background-color: #0056b3;
+}
+
+.preview-words-container {
+  margin-top: 0.5rem;
+  background-color: #f3f1ec;
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preview-heading {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.preview-text {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.6;
+}
+/* Feedback Pop-up Styling */
+.feedback-popup-container {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-popup-content {
+  background: white;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 280px;
+  text-align: center;
+}
+
+.feedback-popup-content p {
+  margin: 0 0 8px;
+  font-size: 0.95em;
+  color: #333;
+}
+
+.feedback-question {
+  font-weight: bold;
+}
+
+.feedback-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.feedback-role-btn {
+  background-color: #c9daf8;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 0.95em;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.feedback-role-btn:hover {
+  background-color: #a4bfee;
+}
+
+.feedback-dismiss-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.85em;
+  cursor: pointer;
+  padding: 4px 8px;
+  margin-top: 0;
+}
+
+.feedback-dismiss-btn:hover {
+  color: #333;
+}
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
