@@ -371,8 +371,27 @@ function maybeShowFeedbackPopup() {
 
 function submitFeedbackRole(role) {
     localStorage.setItem("userRole", role);
-    document.getElementById("feedback-popup").style.display = "none";
     gtag('event', 'user_role_feedback', { 'role': role });
+    document.getElementById("feedback-step-1").style.display = "none";
+    document.getElementById("feedback-step-2").style.display = "block";
+}
+
+function submitFeedbackText() {
+    const feedbackText = document.getElementById("feedback-text").value.trim();
+    if (feedbackText) {
+        gtag('event', 'user_feedback_text', { 'feedback': feedbackText });
+    }
+    document.getElementById("feedback-step-2").style.display = "none";
+    document.getElementById("feedback-step-3").style.display = "block";
+}
+
+function skipFeedbackText() {
+    document.getElementById("feedback-step-2").style.display = "none";
+    document.getElementById("feedback-step-3").style.display = "block";
+}
+
+function closeFeedbackPopup() {
+    document.getElementById("feedback-popup").style.display = "none";
 }
 
 function dismissFeedbackPopup() {
@@ -406,9 +425,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ✅ Feedback popup event listeners
     document.querySelectorAll(".feedback-role-btn").forEach(btn => {
-        btn.addEventListener("click", () => submitFeedbackRole(btn.dataset.role));
+        if (btn.dataset.role) {
+            btn.addEventListener("click", () => submitFeedbackRole(btn.dataset.role));
+        }
     });
     document.getElementById("feedback-dismiss").addEventListener("click", dismissFeedbackPopup);
+    document.getElementById("feedback-submit-text").addEventListener("click", submitFeedbackText);
+    document.getElementById("feedback-skip-text").addEventListener("click", skipFeedbackText);
+    document.getElementById("feedback-close").addEventListener("click", closeFeedbackPopup);
 
     console.log("✅ Calling loadWordData() now...");
     loadWordData();

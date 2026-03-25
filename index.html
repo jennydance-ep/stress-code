@@ -141,14 +141,32 @@
 <!-- Feedback Pop-up: Role Survey -->
 <div id="feedback-popup" class="feedback-popup-container">
     <div class="feedback-popup-content">
-        <p>We'd love to know a bit about you!</p>
-        <p class="feedback-question">What best describes you?</p>
-        <div class="feedback-options">
-            <button class="feedback-role-btn" data-role="learner">English Learner</button>
-            <button class="feedback-role-btn" data-role="teacher">English Teacher</button>
-            <button class="feedback-role-btn" data-role="other">Other</button>
+        <!-- Step 1: Role selection -->
+        <div id="feedback-step-1">
+            <p>We'd love to know a bit about you!</p>
+            <p class="feedback-question">What best describes you?</p>
+            <div class="feedback-options">
+                <button class="feedback-role-btn" data-role="learner">English Learner</button>
+                <button class="feedback-role-btn" data-role="teacher">English Teacher</button>
+                <button class="feedback-role-btn" data-role="other">Other</button>
+            </div>
+            <button id="feedback-dismiss" class="feedback-dismiss-btn">Skip</button>
         </div>
-        <button id="feedback-dismiss" class="feedback-dismiss-btn">Skip</button>
+        <!-- Step 2: Optional text feedback -->
+        <div id="feedback-step-2" style="display: none;">
+            <p class="feedback-question">Any other thoughts?</p>
+            <textarea id="feedback-text" placeholder="Your feedback (optional)" rows="3" style="width: 100%; box-sizing: border-box;"></textarea>
+            <p class="feedback-email-note">Or email <a href="mailto:jenny@jdenglishpronunciation.co.uk">jenny@jdenglishpronunciation.co.uk</a> with your feedback</p>
+            <div class="feedback-options">
+                <button id="feedback-submit-text" class="feedback-role-btn">Submit</button>
+                <button id="feedback-skip-text" class="feedback-dismiss-btn">Skip</button>
+            </div>
+        </div>
+        <!-- Step 3: Thank you -->
+        <div id="feedback-step-3" style="display: none;">
+            <p>Thanks for your feedback!</p>
+            <button id="feedback-close" class="feedback-role-btn">Close</button>
+        </div>
     </div>
 </div>
 
