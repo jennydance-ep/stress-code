@@ -55,7 +55,7 @@ async function loadWordData() {
         console.log("Fetching data from Supabase...");
         const { data, error } = await supabaseClient
             .from("words")
-            .select("word, syllable_count, primary_stress, schwa_count, ipa");
+            .select("word, syllable_count, primary_stress, schwa_count, ipa, part_of_speech");
 
         if (error) throw error;
 
@@ -83,6 +83,7 @@ async function loadWordData() {
             primaryStress: String(randomRow.primary_stress),
             schwaCount: String(randomRow.schwa_count),
             ipa: randomRow.ipa,
+            partOfSpeech: randomRow.part_of_speech,
         };
 
         displayWord(wordData);
@@ -123,6 +124,7 @@ async function loadWordData() {
 function displayWord(wordData) {
     console.log("Selected Word Data:", wordData);
     document.getElementById("target-word").innerText = wordData.word || "No word found";
+    document.getElementById("part-of-speech").innerText = wordData.partOfSpeech ? `(${wordData.partOfSpeech})` : "";
     document.getElementById("ipa-text").innerText = wordData.ipa || "No IPA available";
     document.getElementById("ipa-text").style.display = "none";
     window.currentWordData = wordData;
