@@ -36,7 +36,7 @@ You can adjust the `height` value to suit your page layout.
 ### Live example
 
 You can see the game embedded in action at
-[www.jdenglishpronunciation.co.uk](https://www.jdenglishpronunciation.co.uk).
+[[www.jdenglishpronunciation.co.uk](https://www.jdenglishpronunciation.co.uk/practise-british-english-stress-and-ipa)].
 
 ### Privacy and tracking
 
