@@ -352,17 +352,16 @@ function resetGame() {
 
 // ✅ *TIDY THIS SECTION - RESTORE ON-BOARDING POP-UP?* Onboarding Pop-up Functionality
 function showOnboardingPopup(forceShow = false) {
-    const hasSeenPopup = localStorage.getItem("seenPopup");
+    const hasSeenOnboarding = localStorage.getItem("seenOnboarding");
 
-    // 🚀 Disable automatic pop-up on first open but keep the ability to show it manually
-    if (forceShow) {
+    if (forceShow || !hasSeenOnboarding) {
         document.getElementById("onboarding-popup").style.display = "flex";
     }
 }
 
 function closeOnboardingPopup() {
     document.getElementById("onboarding-popup").style.display = "none";
-    localStorage.setItem("seenPopup", "true"); // ✅ Remember that the user has seen it
+    localStorage.setItem("seenOnboarding", "true");
 }
 
 // ✅ Feedback Pop-up: Show after 3 words if not already answered
@@ -439,6 +438,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("✅ Calling loadWordData() now...");
     loadWordData();
     updateScoreDisplay(); // ✅ Load the score when page loads
+    showOnboardingPopup();
 });
 
 console.log("✅ loadWordData() was called! Waiting for response...");
