@@ -294,7 +294,7 @@ function resetGame() {
     setTimeout(loadWordData, 500);
 }
 
-// ✅ *TIDY THIS SECTION - RESTORE ON-BOARDING POP-UP?* Onboarding Pop-up Functionality
+// ✅ Onboarding Pop-up Functionality
 function showOnboardingPopup(forceShow = false) {
     const hasSeenOnboarding = localStorage.getItem("seenOnboarding");
 
