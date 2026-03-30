@@ -140,59 +140,6 @@ function toggleIPA() {
     ipaElement.style.display = ipaElement.style.display === "none" ? "inline" : "none";
 }
 
-// ✅ *CUT* Score Tracker: Load and Save Scores
-function loadScoreData() {
-    return {
-        score: localStorage.getItem("score") ? parseInt(localStorage.getItem("score")) : 0,
-        streak: localStorage.getItem("streak") ? parseInt(localStorage.getItem("streak")) : 0,
-        lastPlayedDate: localStorage.getItem("lastPlayedDate") || ""
-    };
-}
-
-function saveScoreData(score, streak) {
-    localStorage.setItem("score", score);
-    localStorage.setItem("streak", streak);
-    localStorage.setItem("lastPlayedDate", new Date().toISOString().split('T')[0]); // Save only YYYY-MM-DD
-}
-
-// ✅ *CUT* Helper function to check if days are consecutive
-function isConsecutiveDay(previousDate, currentDate) {
-    const prev = new Date(previousDate);
-    const curr = new Date(currentDate);
-    const difference = (curr - prev) / (1000 * 60 * 60 * 24); // Convert to days
-    return difference === 1; // Returns true if they are consecutive days
-}
-
-// ✅ *CUT* Update Score and Streak
-function updateScore() {
-    let { score, streak, lastPlayedDate } = loadScoreData();
-    const today = new Date().toISOString().split('T')[0]; // Get current date
-
-    if (lastPlayedDate === today) {
-        score += 1; // ✅ Correct: add 1 to score only
-    } else {
-        streak = (lastPlayedDate && isConsecutiveDay(lastPlayedDate, today)) ? streak + 1 : 1;  
-        score = 1; // ✅ Reset score for a new day
-    }
-
-    saveScoreData(score, streak);
-    updateScoreDisplay(); // ✅ Ensure UI updates correctly
-}
-
-// ✅ *CUT* Update Score Display
-function updateScoreDisplay() {
-    const { score, streak } = loadScoreData();
-    const scoreEl = document.getElementById("current-score");
-    const streakEl = document.getElementById("current-streak");
-
-    if (scoreEl) {
-        scoreEl.innerText = score;
-    }
-
-    if (streakEl) {
-        streakEl.innerText = streak;
-    }
-}
 
 // ✅ Check answers
 function checkAnswer() {
@@ -238,8 +185,6 @@ function checkAnswer() {
     }
 
     if (allCorrect) {
-    updateScore();
-
     // ✅ track correct answers
     gtag('event', 'word_correct', {
         'word': window.currentWordData.word
@@ -346,7 +291,6 @@ function resetGame() {
     const feedbackMessage = document.getElementById("feedback-message");
     feedbackMessage.style.display = "none";
     
-    updateScoreDisplay();
     setTimeout(loadWordData, 500);
 }
 
@@ -437,7 +381,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("✅ Calling loadWordData() now...");
     loadWordData();
-    updateScoreDisplay(); // ✅ Load the score when page loads
     showOnboardingPopup();
 });
 
