@@ -199,7 +199,7 @@ function checkAnswer() {
     // ✅ mark that first attempt window has passed
     firstAttempt = false;
 
-    // ✅ *THIS NEEDS REVIEWING, + SECTION BELOW* Auto-reveal IPA for confirmation
+    // ✅ Auto-reveal IPA for confirmation
     document.getElementById("ipa-text").style.display = "inline";
     document.getElementById("toggle-ipa").checked = true;
 
