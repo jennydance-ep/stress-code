@@ -63,7 +63,7 @@ If you adapt the game, please keep a link back to the original project.
 
 If you'd like to suggest an improvement or bug fix, please fork the repository and submit a pull request via GitHub. All contributions are welcome!
 
-GitHub repository: https://github.com/Jenny-Dance-English-Pronunciation/stress-code
+GitHub repository: https://github.com/jennydance-ep/stress-code
 
 ### Questions?
 
