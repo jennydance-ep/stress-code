@@ -20,7 +20,7 @@ const drumSounds = [
 ];
 const preloadedSounds = drumSounds.map(src => {
     const audio = new Audio(src);
-    audio.load();  
+    audio.load();
     return audio;
 });
 
@@ -131,13 +131,20 @@ function displayWord(wordData) {
 
     // ✅ reset the flag for each new word
     firstAttempt = true;
-    attemptCount = 0;  
+    attemptCount = 0;
 }
 
 // ✅ Toggle IPA visibility
 function toggleIPA() {
     const ipaElement = document.getElementById("ipa-text");
-    ipaElement.style.display = ipaElement.style.display === "none" ? "inline" : "none";
+    const isRevealing = ipaElement.style.display === "none";
+    ipaElement.style.display = isRevealing ? "inline" : "none";
+    // ✅ track IPA reveal (not hide)
+    if (isRevealing && window.currentWordData) {
+        gtag('event', 'ipa_revealed', {
+            'word': window.currentWordData.word
+        });
+    }
 }
 
 
@@ -216,6 +223,12 @@ function checkAnswer() {
       "Try Again: Change answers in orange. You can reveal the IPA spelling if you need help!";
     document.getElementById("feedback-message").style.display = "block";
 
+    // ✅ track incorrect attempt
+    gtag('event', 'word_incorrect', {
+        'word': window.currentWordData.word,
+        'attempt_number': attemptCount
+    });
+
     // ❌ Do NOT auto-reveal IPA
     document.getElementById("ipa-text").style.display = "none";
     document.getElementById("toggle-ipa").checked = false;
@@ -226,6 +239,11 @@ function checkAnswer() {
 function shareGame() {
     const gameURL = window.location.href;
     const shareText = `I'm playing Stress Code! Can you beat my score? 🔥 Play here: ${gameURL}`;
+
+    // ✅ track share button click
+    gtag('event', 'game_share', {
+        'method': navigator.share ? 'web_share_api' : 'clipboard'
+    });
 
     if (navigator.share) {
         // ✅ Use Web Share API if available
@@ -284,13 +302,20 @@ function resetGame() {
     const ipaToggle = document.getElementById("toggle-ipa");
     const ipaText = document.getElementById("ipa-text");
 
-    ipaToggle.checked = false;  
-    ipaText.style.display = "none"; 
+    ipaToggle.checked = false;
+    ipaText.style.display = "none";
 
     // Hide the feedback message
     const feedbackMessage = document.getElementById("feedback-message");
     feedbackMessage.style.display = "none";
-    
+
+    // ✅ track session summary before loading next word
+    if (wordsCompletedThisSession > 0) {
+        gtag('event', 'session_summary', {
+            'words_completed': wordsCompletedThisSession
+        });
+    }
+
     setTimeout(loadWordData, 500);
 }
 
@@ -385,9 +410,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 console.log("✅ loadWordData() was called! Waiting for response...");
-
-
-
-
-
-
